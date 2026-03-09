@@ -1,26 +1,47 @@
-# Installation Guide
+# Pettersson Sikkerhet
 
-## Complete Installation Guide
-1. Download the software from the repository.
-2. Follow the instructions to install dependencies.
-3. Run the installation script.
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/2mebp/pettersson-sikkerhet.git
+   cd pettersson-sikkerhet
+   ```
+2. Install the required dependencies:
+   ```bash
+   sudo apt install <required-packages>
+   ```
 
-## Cron Jobs
-- To set up cron jobs, edit your crontab file using `crontab -e`.
-- Add the following lines for scheduled tasks:
-  - `0 * * * * /path/to/script`  # Runs every hour.
+## Verification
+After installation, verify the setup by running:
+```bash
+./verify_setup.sh
+```
+This script checks the environment and ensures everything is configured correctly.
+
+## Cron Jobs Schedule
+Set up cron jobs to automate tasks. Open the crontab editor:
+```bash
+crontab -e
+```
+Then add your desired job:
+```bash
+# Run script every hour
+0 * * * * /path/to/your/script.sh
+```
 
 ## Fan Control
-- Ensure the fan control script is executable.
-- Use the command `./fan_control` to start managing fan speeds based on temperature.
-
-## Troubleshooting
-- If you encounter issues, check the log files in the `logs/` directory. 
-- Common error messages can be found in the documentation.
+To control the fan speed based on temperature, ensure you have configured the relevant settings in your configuration file, e.g. `fan_control.conf`. Refer to the documentation for the parameters available.
 
 ## ASUS Router Configuration
-1. Access the router settings at `192.168.1.1`.
-2. Navigate to the "Advanced" section.
-3. Set up port forwarding according to the application's requirements.
+For ASUS router configuration, log into the router's web interface and navigate to the appropriate sections:
+- Set up your network settings.
+- Configure port forwarding if necessary.
 
-For more detailed instructions, refer to the official documentation or support.
+Consult the ASUS documentation for detailed instructions related to your specific model.
+
+## Troubleshooting
+If you encounter issues:
+- **Check the logs**: Review the logs located in `/var/log/pettersson-sikkerhet/`
+- **Verify configurations**: Ensure all configurations are set correctly.
+- **Reboot components**: Sometimes, a reboot may resolve connectivity or service issues.
+- If all else fails, check [GitHub issues](https://github.com/2mebp/pettersson-sikkerhet/issues) for similar problems and solutions.
